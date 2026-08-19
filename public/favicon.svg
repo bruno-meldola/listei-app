@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e1e" />
+      <stop offset="100%" stop-color="#121212" />
+    </linearGradient>
+  </defs>
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" />
+  
+  <!-- Shopping Bag Icon -->
+  <path d="M150 170 C150 115 195 70 256 70 C317 70 362 115 362 170" fill="none" stroke="#f8f9fa" stroke-width="28" stroke-linecap="round"/>
+  <rect x="110" y="160" width="292" height="260" rx="36" fill="#f8f9fa"/>
+  
+  <!-- Checkmark inside bag -->
+  <path d="M190 285 L235 330 L325 235" fill="none" stroke="#121212" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Spark / Badge accent -->
+  <circle cx="370" cy="150" r="26" fill="#121212" stroke="#f8f9fa" stroke-width="8"/>
+</svg>
