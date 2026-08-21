@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { X, Plus, Layers, Copy, Trash2, Check, Pencil } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import AddRounded from '@mui/icons-material/AddRounded';
+import LayersRounded from '@mui/icons-material/LayersRounded';
+import ContentCopyRounded from '@mui/icons-material/ContentCopyRounded';
+import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import CheckRounded from '@mui/icons-material/CheckRounded';
+import EditRounded from '@mui/icons-material/EditRounded';
 import type { ShoppingList } from '../types/shopping';
 import { formatCurrency } from '../utils/currency';
 
@@ -81,7 +87,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Layers size={22} />
+            <LayersRounded style={{ fontSize: 24 }} />
             <h2 className="modal-title">Gerenciar Minhas Listas</h2>
           </div>
           <button
@@ -93,7 +99,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
             }}
             aria-label="Fechar"
           >
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -161,7 +167,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                 setIsCreating(true);
               }}
             >
-              <Plus size={18} />
+              <AddRounded style={{ fontSize: 20 }} />
               <span>Criar Nova Lista do Zero</span>
             </button>
           )}
@@ -213,7 +219,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                           onClick={() => handleSaveRename(list.id)}
                           title="Confirmar novo nome"
                         >
-                          <Check size={18} />
+                          <CheckRounded style={{ fontSize: 18 }} />
                         </button>
                       </div>
                     ) : (
@@ -263,7 +269,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                         aria-label="Duplicar lista"
                       >
                         <abbr title="Duplicar lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                          <Copy size={16} />
+                          <ContentCopyRounded style={{ fontSize: 16 }} />
                         </abbr>
                       </button>
 
@@ -275,7 +281,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                           aria-label="Renomear lista"
                         >
                           <abbr title="Renomear lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <Pencil size={16} />
+                            <EditRounded style={{ fontSize: 16 }} />
                           </abbr>
                         </button>
                       )}
@@ -293,7 +299,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                           aria-label="Excluir lista"
                         >
                           <abbr title="Excluir lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <Trash2 size={16} />
+                            <DeleteOutlineRounded style={{ fontSize: 16 }} />
                           </abbr>
                         </button>
                       )}

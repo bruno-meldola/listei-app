@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { GripVertical, Check, Trash2, Edit2, X, Scale } from 'lucide-react';
+import DragIndicatorRounded from '@mui/icons-material/DragIndicatorRounded';
+import CheckRounded from '@mui/icons-material/CheckRounded';
+import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import EditRounded from '@mui/icons-material/EditRounded';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import ScaleRounded from '@mui/icons-material/ScaleRounded';
 import type { ShoppingItem } from '../types/shopping';
 import { calculateItemSubtotal, isWeighableUnit } from '../types/shopping';
 import { formatShortCurrency, parseCurrencyInput, formatQuantity } from '../utils/currency';
@@ -85,7 +90,6 @@ export const ItemCard: React.FC<ItemCardProps> = ({
 
     setPriceInput(val);
     const parsed = parseCurrencyInput(val);
-    // Ao digitar no preço unitário, limpa o customSubtotal para usar o cálculo por peso/unidade
     onUpdateItem(item.id, { price: parsed, customSubtotal: null });
   };
 
@@ -142,7 +146,6 @@ export const ItemCard: React.FC<ItemCardProps> = ({
     const step = item.unit === 'kg' ? 0.5 : 1;
     let newQty = item.quantity + delta * step;
     if (newQty < 0) newQty = 0;
-    // Arredonda para 2 casas se for kg
     newQty = item.unit === 'kg' ? Math.round(newQty * 100) / 100 : Math.round(newQty);
 
     setQtyInput(formatQuantity(newQty));
@@ -199,9 +202,9 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           className="drag-handle"
           {...attributes}
           {...listeners}
-          title="Segure para reordenar o item"
+          title="Segure para reordenar o item na lista"
         >
-          <GripVertical size={18} />
+          <DragIndicatorRounded style={{ fontSize: 20 }} />
         </div>
 
         {/* Checkbox Ergonômica */}
@@ -213,11 +216,11 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           aria-checked={item.checked}
         >
           <div className="custom-checkbox">
-            {item.checked && <Check size={16} strokeWidth={3} />}
+            {item.checked && <CheckRounded style={{ fontSize: 18 }} />}
           </div>
         </div>
 
-        {/* Informações do Item + Lembrete de Pesar no Caixa */}
+        {/* Informações do Item + Tag Pesável */}
         <div className="item-info" onClick={() => onOpenEdit && onOpenEdit(item)}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             <span className="item-name">{item.name}</span>
@@ -226,10 +229,10 @@ export const ItemCard: React.FC<ItemCardProps> = ({
                 type="button"
                 className={`weigh-badge ${currentSubtotal > 0 ? 'confirmed' : 'pending'}`}
                 onClick={toggleWeighReminder}
-                title={currentSubtotal > 0 ? 'Valor pesado lançado. Clique para alternar' : 'Item pesável: Pesar no caixa'}
+                title={currentSubtotal > 0 ? 'Item pesável com valor preenchido' : 'Item pesável'}
               >
-                <Scale size={11} />
-                <span>{currentSubtotal > 0 ? 'Pesado' : 'Pesar no caixa'}</span>
+                <ScaleRounded style={{ fontSize: 13 }} />
+                <span>{currentSubtotal > 0 ? 'Pesado' : 'Pesável'}</span>
               </button>
             )}
           </div>
@@ -244,7 +247,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
             onClick={() => onOpenEdit(item)}
             title="Editar detalhes do item"
           >
-            <Edit2 size={16} />
+            <EditRounded style={{ fontSize: 17 }} />
           </button>
         )}
 
@@ -255,11 +258,11 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           onClick={() => onDeleteItem(item.id)}
           title="Remover item da lista"
         >
-          <Trash2 size={16} />
+          <DeleteOutlineRounded style={{ fontSize: 18 }} />
         </button>
       </div>
 
-      {/* Controles de Quantidade/Peso, Preço Unitário e Subtotal Direto */}
+      {/* Controles de Quantidade/Peso, Preço Unitário e Subtotal Direto (Sem Sobreposição) */}
       <div className="item-card-actions">
         {/* Stepper e Input de Quantidade/Peso */}
         <div className="quantity-stepper" title={`Quantidade ou peso em ${item.unit}`}>
@@ -297,64 +300,57 @@ export const ItemCard: React.FC<ItemCardProps> = ({
         </div>
 
         {/* Preço Unitário / por Kg */}
-        <div className="price-box" title={`Preço por ${item.unit}`}>
-          <div className="price-input-wrapper">
-            <span className="price-currency-label" style={{ fontSize: '0.74rem' }}>
-              {priceUnitPrefix}
-            </span>
-            <input
-              type="text"
-              inputMode="decimal"
-              className="price-input"
-              style={{ paddingLeft: priceUnitPrefix.length > 5 ? '48px' : '38px', width: '98px' }}
-              placeholder="0,00"
-              value={priceInput}
-              onChange={handlePriceChange}
-              onFocus={() => setIsPriceFocused(true)}
-              onBlur={handlePriceBlur}
-              title={`Preço por ${item.unit}`}
-            />
-            {item.price > 0 && (
-              <button
-                type="button"
-                className="btn-clear-price"
-                onClick={handleClearPrice}
-                title="Zerar valor unitário"
-                aria-label="Zerar valor unitário"
-              >
-                <X size={12} strokeWidth={2.5} />
-              </button>
-            )}
-          </div>
+        <div className="price-input-wrapper" title={`Preço por ${item.unit}`}>
+          <span className="price-currency-label">{priceUnitPrefix}</span>
+          <input
+            type="text"
+            inputMode="decimal"
+            className="price-input-field"
+            placeholder="0,00"
+            value={priceInput}
+            onChange={handlePriceChange}
+            onFocus={() => setIsPriceFocused(true)}
+            onBlur={handlePriceBlur}
+            title={`Preço por ${item.unit}`}
+          />
+          {item.price > 0 && (
+            <button
+              type="button"
+              className="btn-clear-inline"
+              onClick={handleClearPrice}
+              title="Zerar valor unitário"
+              aria-label="Zerar valor unitário"
+            >
+              <CloseRounded style={{ fontSize: 13 }} />
+            </button>
+          )}
         </div>
 
-        {/* Subtotal / Total Direto (Balança / Caixa) */}
-        <div className="subtotal-input-box" title="Valor Total do item (calcule ou digite direto da balança)">
-          <div className="subtotal-input-wrapper">
-            <span className="subtotal-currency-label">Total R$</span>
-            <input
-              type="text"
-              inputMode="decimal"
-              className="subtotal-input"
-              placeholder="0,00"
-              value={subtotalInput}
-              onChange={handleSubtotalChange}
-              onFocus={() => setIsSubtotalFocused(true)}
-              onBlur={handleSubtotalBlur}
-              title="Digite o total da balança ou veja o calculado"
-            />
-            {currentSubtotal > 0 && (
-              <button
-                type="button"
-                className="btn-clear-price"
-                onClick={handleClearSubtotal}
-                title="Zerar subtotal"
-                aria-label="Zerar subtotal"
-              >
-                <X size={12} strokeWidth={2.5} />
-              </button>
-            )}
-          </div>
+        {/* Subtotal / Total Direto da Balança (Layout Flex Sem Sobreposição) */}
+        <div className="subtotal-input-wrapper" title="Valor Total do produto (calculado ou digitado direto da balança)">
+          <span className="subtotal-currency-label">Total R$</span>
+          <input
+            type="text"
+            inputMode="decimal"
+            className="subtotal-input-field"
+            placeholder="0,00"
+            value={subtotalInput}
+            onChange={handleSubtotalChange}
+            onFocus={() => setIsSubtotalFocused(true)}
+            onBlur={handleSubtotalBlur}
+            title="Valor total da balança ou calculado"
+          />
+          {currentSubtotal > 0 && (
+            <button
+              type="button"
+              className="btn-clear-inline"
+              onClick={handleClearSubtotal}
+              title="Zerar valor total"
+              aria-label="Zerar valor total"
+            >
+              <CloseRounded style={{ fontSize: 13 }} />
+            </button>
+          )}
         </div>
       </div>
     </div>

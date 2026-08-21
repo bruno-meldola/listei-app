@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { X, FileText, Check } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined';
+import CheckRounded from '@mui/icons-material/CheckRounded';
 import type { ShoppingItem } from '../types/shopping';
 import { parseShoppingText } from '../utils/parser';
 
@@ -34,11 +36,11 @@ export const QuickPasteModal: React.FC<QuickPasteModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FileText size={20} />
+            <DescriptionOutlined style={{ fontSize: 22 }} />
             <h2 className="modal-title">Importar Lista do WhatsApp</h2>
           </div>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -118,7 +120,7 @@ export const QuickPasteModal: React.FC<QuickPasteModalProps> = ({
             disabled={parsedItems.length === 0}
             onClick={handleImport}
           >
-            <Check size={16} />
+            <CheckRounded style={{ fontSize: 18 }} />
             <span>Adicionar {parsedItems.length > 0 ? `(${parsedItems.length}) Itens` : 'Itens'}</span>
           </button>
         </div>

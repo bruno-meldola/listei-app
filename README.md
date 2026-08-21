@@ -1,44 +1,49 @@
-# 🛒 Listei! - Lista de Compras Inteligente & Calculadora em Tempo Real (PWA)
+# 🛒 Listei! - Lista de Compras Inteligente & Calculadora em Tempo Real
 
-> O aplicativo definitivo para planejar compras em casa e nunca mais perder as contas ou estourar o orçamento no supermercado.
+<p align="center">
+  <strong>Aplicativo web progressivo (PWA) offline-first para planejamento de compras, cálculo automático de subtotais e controle de orçamento em tempo real.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/PWA-Ready-5A0FC8?logo=pwa&logoColor=white" alt="PWA Ready" />
+  <img src="https://img.shields.io/badge/Material_Icons-Google-007FFF?logo=materialdesign&logoColor=white" alt="Material Design Icons" />
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License" />
+</p>
 
 ---
 
-## 🧐 O Problema que o Listei! Resolve
+## 🎯 Sobre o Projeto
 
-Tradicionalmente, ir ao mercado é um processo estressante:
-1. O usuário anota o que precisa no WhatsApp ou bloco de notas.
-2. No mercado, abre o app de calculadora e fica alternando freneticamente entre o bloco de notas e a calculadora.
-3. Precisa multiplicar preços unitários por quantidades (ex: 3 pacotes de café, 1.5kg de maçã) e somar tudo manualmente.
-4. No meio das compras, ao alternar entre os aplicativos, a calculadora zera ou se perde e todo o cálculo vai para o ralo.
-5. Resultado: susto no caixa com o valor final ultrapassando o orçamento pretendido.
+O **Listei!** foi desenvolvido para solucionar a dor comum de calcular compras no mercado alternando entre bloco de notas e calculadora. 
 
-O **Listei!** unifica lista de compras, calculadora automática instantânea, controle de orçamento e reordenação inteligente em um único lugar, funcionando até mesmo **100% offline**.
+Ele unifica a lista de compras, o cálculo automático de produtos unitários e pesáveis (por kg ou gramas), o monitoramento de teto de gastos e a organização visual dos corredores via drag 'n drop — funcionando **100% offline**.
 
 ---
 
 ## ✨ Funcionalidades Principais
 
-- 📝 **Criação do Zero & Múltiplas Listas**: Crie e gerencie listas separadas (ex: *Supermercado Mensal*, *Feira do Bairro*, *Churrasco com os Amigos*).
-- 📱 **Importação Inteligente do WhatsApp**: Copie sua lista do WhatsApp e cole no Listei! — o aplicativo detecta nomes, quantidades e unidades automaticamente.
-- 🧮 **Calculadora Integrada em Tempo Real**: Adicione os produtos sem preço em casa. No mercado, digite o valor unitário (`R$`) e use os botões `+`/`-` para ajustar a quantidade. O subtotal (`quantidade × preço`) e o total da compra são recalculados no mesmo milissegundo.
-- ✅ **Checkbox & Efeito Riscado**: Marque os produtos colocados no carrinho para riscar o texto e manter o foco apenas no que ainda falta pegar.
-- 🖐️ **Drag 'n Drop Ergonômico**: Reordene os itens arrastando para organizar sua lista na ordem dos corredores do mercado sem ficar rolando a tela sem parar.
-- 🎯 **Controle de Teto de Orçamento (Budget Tracker)**: Defina um limite de gastos (ex: R$ 500,00). O aplicativo exibe uma barra de progresso em tempo real e avisa com destaque visual caso você ultrapasse.
-- 💾 **Persistência Total (Zero Perda de Dados)**: Cada caractere, preço ou clique é salvo instantaneamente no dispositivo via LocalStorage.
-- 📶 **PWA & 100% Offline**: Funcione mesmo nos corredores de supermercados onde não há sinal de internet nem Wi-Fi.
-- 📤 **Resumo & Compartilhamento WhatsApp**: Exporte em 1 clique o resumo da compra com valores, subtotais e saldo para enviar de volta no WhatsApp.
-- 🔄 **Reutilização de Listas**: Com 1 clique, desmarque todos os produtos e zere os preços para reaproveitar a mesma lista no mês seguinte.
+- 🧮 **Calculadora em Tempo Real**: Cálculo instantâneo de subtotais (`quantidade × preço unitário` ou `peso × preço/kg`) com atualização imediata do valor total da compra.
+- ⚖️ **Suporte a Itens Pesáveis**: Gestão de produtos de hortifrúti/açougue por quilo (`kg`) ou gramas (`g`), com tag identificadora e campo para lançamento direto do valor da balança.
+- 🎯 **Controle de Teto de Gastos (Budget Tracker)**: Definição de orçamento máximo com barra de progresso em tempo real e avisos visuais de limite.
+- 🖐️ **Organização com Drag 'n Drop**: Reordenação ergonômica de itens com sensores adaptados para toque em smartphones e mouse em desktops.
+- 📁 **Gerenciamento de Múltiplas Listas**: Criação, renomeação, duplicação e exclusão de listas independentes.
+- 💬 **Integração Inteligente com WhatsApp**: Importador de texto com detecção automática de quantidades/unidades e exportação do resumo formatado para compartilhamento.
+- 🌓 **Tema Claro e Escuro (Material Design)**: Suporte completo a Modo Claro, Modo Escuro e sincronização com o tema do sistema operacional.
+- 📶 **PWA & Offline-First**: Instalação nativa na tela inicial (Android/iOS/Desktop) e persistência de dados local sem necessidade de conexão com a internet.
 
 ---
 
-## 🎨 Filosofia de Design: Neutro & Foco em UX
+## 🛠️ Tecnologias & Arquitetura
 
-O **Listei!** adota um Design System monocromático/neutro de alto contraste:
-- **Ergonomia Mobile**: Elementos de toque com área mínima de 44x44px.
-- **Barra de Orçamento Fixa**: Totalizador sempre acessível no alcance do polegar.
-- **Micro-interações fluidas**: Feedback tátil e transições sem lentidão.
-- **Clareza Absoluta**: Se o design funciona com excelência em preto e branco, ele não depende de distrações visuais para ser útil e veloz.
+- **Core**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vite.dev/)
+- **Ícones**: [Google Material Icons](https://mui.com/material-ui/material-icons/) via `@mui/icons-material`
+- **Drag & Drop**: [@dnd-kit/core](https://dndkit.com/) + `@dnd-kit/sortable`
+- **PWA & Cache**: `vite-plugin-pwa` + `Workbox`
+- **Persistência**: Web LocalStorage API com sincronização reativa via Custom Hooks
 
 ---
 
@@ -46,68 +51,39 @@ O **Listei!** adota um Design System monocromático/neutro de alto contraste:
 
 ### Pré-requisitos
 - [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- NPM ou Yarn
+- Gerenciador de pacotes npm, yarn ou pnpm
 
-### Passo a Passo:
+### Passo a passo:
+
 ```bash
-# 1. Instalar as dependências
+# 1. Clonar o repositório
+git clone https://github.com/bruno-meldola/listei-app.git
+
+# 2. Acessar a pasta do projeto
+cd listei-app
+
+# 3. Instalar as dependências
 npm install
 
-# 2. Iniciar o servidor de desenvolvimento
+# 4. Iniciar o servidor de desenvolvimento
 npm run dev
-
-# 3. Gerar a build de produção (PWA otimizado)
-npm run build
-
-# 4. Pré-visualizar a build de produção
-npm run preview
 ```
+
+Link da aplicação: [EM BREVE]
 
 ---
 
-## 📱 Como Publicar na Google Play Store
+## 📋 Scripts Disponíveis
 
-O projeto já conta com o arquivo `manifest.json`, Service Worker configurado, ícones em alta resolução e suporte a TWA (Trusted Web Activity).
-
-Consulte o guia completo e didático passo a passo em:
-👉 **[GUIA_PUBLICACAO_PLAYSTORE.md](./GUIA_PUBLICACAO_PLAYSTORE.md)**
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run dev` | Inicia o servidor local de desenvolvimento com Hot Module Replacement (HMR). |
+| `npm run build` | Valida tipagens com o TypeScript compiler e gera o bundle de produção otimizado na pasta `dist/`. |
+| `npm run preview` | Executa localmente a versão final gerada na pasta `dist/`. |
+| `npm run lint` | Executa a análise estática de código com o Oxlint. |
 
 ---
 
-## 📁 Estrutura do Código
+## 📄 Licença
 
-```
-Listei/
-├── public/
-│   ├── favicon.svg               # Ícone vetorial do aplicativo
-│   ├── icon-192.png              # Ícone PWA / Android 192x192
-│   ├── icon-512.png              # Ícone PWA / Play Store 512x512
-│   └── manifest.json             # Manifesto Web App / PWA
-├── src/
-│   ├── components/
-│   │   ├── AddItemForm.tsx       # Formulário de inserção rápida de itens
-│   │   ├── BudgetBar.tsx         # Barra fixa inferior de orçamento e total
-│   │   ├── BudgetModal.tsx       # Modal de configuração do teto de gastos
-│   │   ├── EditItemModal.tsx     # Modal de edição detalhada de itens
-│   │   ├── Header.tsx            # Cabeçalho e seletor de listas
-│   │   ├── ItemCard.tsx          # Card de item com drag handle, checkbox e calculadora
-│   │   ├── ItemList.tsx          # Container da lista ordenável com @dnd-kit
-│   │   ├── ListManagerModal.tsx  # Gerenciador de múltiplas listas de compras
-│   │   ├── QuickPasteModal.tsx   # Importador de texto do WhatsApp
-│   │   └── SummaryModal.tsx      # Resumo e exportador formatado
-│   ├── hooks/
-│   │   └── useShoppingLists.ts   # Hook central de estado, cálculos e persistência
-│   ├── styles/
-│   │   └── index.css             # Design System Neutro, tokens e animações
-│   ├── types/
-│   │   └── shopping.ts           # Interfaces e tipos TypeScript
-│   ├── utils/
-│   │   ├── currency.ts           # Formatadores e máscaras de moeda BRL
-│   │   └── parser.ts             # Parser e gerador de mensagens WhatsApp
-│   ├── App.tsx                   # Componente raiz da aplicação
-│   └── main.tsx                  # Ponto de entrada do React
-├── GUIA_PUBLICACAO_PLAYSTORE.md  # Manual passo a passo para a Play Store
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
-```
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.

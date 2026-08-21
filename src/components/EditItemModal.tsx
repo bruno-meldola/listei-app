@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, Check } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import CheckRounded from '@mui/icons-material/CheckRounded';
 import type { ShoppingItem, ItemUnit } from '../types/shopping';
 import { formatShortCurrency, parseCurrencyInput } from '../utils/currency';
 
@@ -88,7 +89,7 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
         <div className="modal-header">
           <h2 className="modal-title">Editar Produto</h2>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -138,13 +139,12 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
 
             <div className="form-group">
               <label className="form-label">Preço Unitário (R$)</label>
-              <div className="price-input-wrapper" style={{ width: '100%' }}>
-                <span className="price-currency-label" style={{ left: '14px' }}>R$</span>
+              <div className="price-input-wrapper" style={{ width: '100%', maxWidth: '100%' }}>
+                <span className="price-currency-label" style={{ paddingLeft: '4px' }}>R$</span>
                 <input
                   type="text"
                   inputMode="decimal"
-                  className="input-main"
-                  style={{ paddingLeft: '44px', width: '100%' }}
+                  className="price-input-field"
                   placeholder="0,00"
                   value={price}
                   onChange={handlePriceChange}
@@ -169,7 +169,7 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
               Cancelar
             </button>
             <button type="submit" className="btn-primary">
-              <Check size={16} />
+              <CheckRounded style={{ fontSize: 18 }} />
               <span>Salvar Alterações</span>
             </button>
           </div>

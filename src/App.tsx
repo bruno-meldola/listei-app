@@ -90,14 +90,20 @@ export const App: React.FC = () => {
       ) : (
         /* TELA DE DETALHES DA LISTA (Modo Mercado / Compras) */
         <>
-          {/* Header com botão Voltar */}
+          {/* Header com botão Voltar, Data de Criação, Busca e Ações */}
           <Header
             activeList={activeList}
             stats={stats}
-            onBack={() => setCurrentView('home')}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            onBack={() => {
+              setSearchQuery('');
+              setCurrentView('home');
+            }}
             onOpenQuickPaste={() => setIsQuickPasteModalOpen(true)}
             onOpenBudgetModal={() => setIsBudgetModalOpen(true)}
             onOpenSummaryModal={() => setIsSummaryModalOpen(true)}
+            onOpenResetModal={() => setIsResetListModalOpen(true)}
           />
 
           {/* Inserção Rápida de Produtos */}
@@ -107,20 +113,18 @@ export const App: React.FC = () => {
             }
           />
 
-          {/* Lista Ordenável de Produtos */}
+          {/* Lista Ordenável de Produtos com Filtros Limpos */}
           <ItemList
             items={filteredItems}
             stats={stats}
             filter={filter}
             searchQuery={searchQuery}
             onFilterChange={setFilter}
-            onSearchChange={setSearchQuery}
             onToggleCheck={toggleCheckItem}
             onUpdateItem={updateItem}
             onDeleteItem={deleteItem}
             onReorder={reorderItemsById}
             onOpenEdit={(item) => setEditingItem(item)}
-            onOpenResetModal={() => setIsResetListModalOpen(true)}
           />
 
           {/* Barra Fixa Inferior de Orçamento */}

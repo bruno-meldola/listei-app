@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, DollarSign, Trash2 } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import AttachMoneyRounded from '@mui/icons-material/AttachMoneyRounded';
+import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
 import { formatCurrency, parseCurrencyInput, formatShortCurrency } from '../utils/currency';
 
 interface BudgetModalProps {
@@ -47,11 +49,11 @@ export const BudgetModal: React.FC<BudgetModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <DollarSign size={20} />
+            <AttachMoneyRounded style={{ fontSize: 22 }} />
             <h2 className="modal-title">Definir Orçamento da Compra</h2>
           </div>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -117,7 +119,7 @@ export const BudgetModal: React.FC<BudgetModalProps> = ({
               style={{ marginRight: 'auto' }}
               title="Remover orçamento"
             >
-              <Trash2 size={16} style={{ marginRight: '4px' }} />
+              <DeleteOutlineRounded style={{ fontSize: 18, marginRight: '4px' }} />
               Remover Limite
             </button>
           )}

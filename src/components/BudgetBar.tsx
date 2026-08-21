@@ -1,5 +1,8 @@
 import React from 'react';
-import { AlertCircle, CheckCircle2, ChevronRight, Edit3 } from 'lucide-react';
+import ErrorOutlineRounded from '@mui/icons-material/ErrorOutlineRounded';
+import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded';
+import ChevronRightRounded from '@mui/icons-material/ChevronRightRounded';
+import EditRounded from '@mui/icons-material/EditRounded';
 import type { ListStats } from '../types/shopping';
 import { formatCurrency } from '../utils/currency';
 
@@ -50,7 +53,7 @@ export const BudgetBar: React.FC<BudgetBarProps> = ({
                   title="Alterar valor de orçamento"
                 >
                   <span>Teto: {formatCurrency(totalBudget)}</span>
-                  <Edit3 size={12} />
+                  <EditRounded style={{ fontSize: 14 }} />
                 </button>
                 <div
                   className={`budget-remaining-text ${
@@ -59,7 +62,7 @@ export const BudgetBar: React.FC<BudgetBarProps> = ({
                 >
                   {isOverBudget ? (
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                      <AlertCircle size={14} />
+                      <ErrorOutlineRounded style={{ fontSize: 16 }} />
                       Estourou {formatCurrency(Math.abs(remainingBudget || 0))}
                     </span>
                   ) : (
@@ -97,7 +100,7 @@ export const BudgetBar: React.FC<BudgetBarProps> = ({
           <span className="cart-items-counter">
             {checkedItemsCount === totalItemsCount && totalItemsCount > 0 ? (
               <span style={{ color: 'var(--accent-success)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                <CheckCircle2 size={14} /> Todos pegos ({checkedItemsCount})
+                <CheckCircleRounded style={{ fontSize: 16 }} /> Todos pegos ({checkedItemsCount})
               </span>
             ) : (
               <span>
@@ -113,7 +116,7 @@ export const BudgetBar: React.FC<BudgetBarProps> = ({
             title="Abrir resumo da compra"
           >
             <span>Ver Resumo</span>
-            <ChevronRight size={16} />
+            <ChevronRightRounded style={{ fontSize: 18 }} />
           </button>
         </div>
       </div>

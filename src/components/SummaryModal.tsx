@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { X, Share2, CheckCircle2, Copy, Check } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import ShareRounded from '@mui/icons-material/ShareRounded';
+import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded';
+import ContentCopyRounded from '@mui/icons-material/ContentCopyRounded';
+import CheckRounded from '@mui/icons-material/CheckRounded';
 import type { ShoppingList, ListStats } from '../types/shopping';
 import { formatCurrency } from '../utils/currency';
 import { formatListForWhatsApp } from '../utils/parser';
@@ -68,11 +72,11 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <CheckCircle2 size={20} />
+            <CheckCircleRounded style={{ fontSize: 22 }} />
             <h2 className="modal-title">Resumo da Compra</h2>
           </div>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -196,7 +200,7 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
                 onClick={handleCopyText}
                 title="Copiar texto"
               >
-                {copied ? <Check size={14} /> : <Copy size={14} />}
+                {copied ? <CheckRounded style={{ fontSize: 16 }} /> : <ContentCopyRounded style={{ fontSize: 16 }} />}
               </button>
             </div>
             <pre
@@ -219,7 +223,7 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
 
         <div className="modal-footer">
           <button type="button" className="btn-secondary" onClick={handleCopyText}>
-            {copied ? <Check size={16} /> : <Copy size={16} />}
+            {copied ? <CheckRounded style={{ fontSize: 18 }} /> : <ContentCopyRounded style={{ fontSize: 18 }} />}
             <span>{copied ? 'Copiado!' : 'Copiar'}</span>
           </button>
 
@@ -229,7 +233,7 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
             onClick={handleShareWhatsApp}
             style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <Share2 size={16} />
+            <ShareRounded style={{ fontSize: 18 }} />
             <span>Enviar no WhatsApp</span>
           </button>
         </div>

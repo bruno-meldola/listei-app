@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { X, Plus, DollarSign } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import AddRounded from '@mui/icons-material/AddRounded';
+import AttachMoneyRounded from '@mui/icons-material/AttachMoneyRounded';
 
 interface CreateListModalProps {
   isOpen: boolean;
@@ -33,11 +35,11 @@ export const CreateListModal: React.FC<CreateListModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Plus size={20} strokeWidth={2.5} />
+            <AddRounded style={{ fontSize: 22 }} />
             <h2 className="modal-title">Criar Nova Lista</h2>
           </div>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -57,15 +59,14 @@ export const CreateListModal: React.FC<CreateListModalProps> = ({
 
             <div className="form-group">
               <label className="form-label">Teto de Orçamento (R$, opcional)</label>
-              <div className="price-input-wrapper" style={{ width: '100%' }}>
-                <span className="price-currency-label" style={{ left: '14px' }}>
-                  <DollarSign size={16} />
+              <div className="price-input-wrapper" style={{ width: '100%', maxWidth: '100%' }}>
+                <span className="price-currency-label" style={{ display: 'flex', alignItems: 'center' }}>
+                  <AttachMoneyRounded style={{ fontSize: 18 }} />
                 </span>
                 <input
                   type="text"
                   inputMode="decimal"
-                  className="input-main"
-                  style={{ paddingLeft: '42px', width: '100%' }}
+                  className="price-input-field"
                   placeholder="Ex: 500,00"
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
@@ -82,7 +83,7 @@ export const CreateListModal: React.FC<CreateListModalProps> = ({
               Cancelar
             </button>
             <button type="submit" className="btn-primary" disabled={!name.trim()}>
-              <Plus size={16} strokeWidth={2.5} />
+              <AddRounded style={{ fontSize: 18 }} />
               <span>Criar Lista</span>
             </button>
           </div>

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import {
-  Menu,
-  Plus,
-  Search,
-  X,
-  Copy,
-  Trash2,
-  Pencil,
-  Check,
-  CheckCircle2,
-  AlertCircle,
-  Layers,
-} from 'lucide-react';
+import MenuRounded from '@mui/icons-material/MenuRounded';
+import AddRounded from '@mui/icons-material/AddRounded';
+import SearchRounded from '@mui/icons-material/SearchRounded';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import ContentCopyRounded from '@mui/icons-material/ContentCopyRounded';
+import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import EditRounded from '@mui/icons-material/EditRounded';
+import CheckRounded from '@mui/icons-material/CheckRounded';
+import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded';
+import ErrorOutlineRounded from '@mui/icons-material/ErrorOutlineRounded';
+import LayersRounded from '@mui/icons-material/LayersRounded';
 import type { ShoppingList } from '../types/shopping';
 import type { ThemeMode } from '../hooks/useTheme';
 import { formatCurrency } from '../utils/currency';
@@ -90,7 +88,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             title="Menu Principal"
             aria-label="Abrir menu de navegação"
           >
-            <Menu size={22} />
+            <MenuRounded style={{ fontSize: 24 }} />
           </button>
         </div>
 
@@ -109,7 +107,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             title={isSearchActive ? 'Fechar busca' : 'Buscar listas'}
             aria-label="Procurar listas"
           >
-            <Search size={19} />
+            <SearchRounded style={{ fontSize: 20 }} />
           </button>
 
           <button
@@ -119,7 +117,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             title="Criar nova lista"
             aria-label="Criar nova lista"
           >
-            <Plus size={22} strokeWidth={2.5} />
+            <AddRounded style={{ fontSize: 22 }} />
           </button>
         </div>
       </header>
@@ -128,7 +126,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {isSearchActive && (
         <div className="material-search-expanded">
           <div className="material-search-input-wrapper">
-            <Search size={16} className="search-icon" />
+            <SearchRounded style={{ fontSize: 18 }} className="search-icon" />
             <input
               type="text"
               className="search-input"
@@ -143,7 +141,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               onClick={handleCloseSearch}
               title="Fechar busca"
             >
-              <X size={16} />
+              <CloseRounded style={{ fontSize: 18 }} />
             </button>
           </div>
         </div>
@@ -154,7 +152,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         {/* Grid de Cards de Listas */}
         {filteredLists.length === 0 ? (
           <div className="empty-state home-empty-state">
-            <Layers className="empty-state-icon" />
+            <LayersRounded className="empty-state-icon" style={{ fontSize: 48 }} />
             <div className="empty-state-title">
               {searchQuery ? 'Nenhuma lista encontrada' : 'Você ainda não tem listas'}
             </div>
@@ -170,7 +168,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 style={{ marginTop: '12px' }}
                 onClick={() => setIsCreateModalOpen(true)}
               >
-                <Plus size={18} />
+                <AddRounded style={{ fontSize: 20 }} />
                 <span>Criar Minha Primeira Lista</span>
               </button>
             )}
@@ -230,7 +228,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                           onClick={() => handleSaveRename(list.id)}
                           title="Confirmar"
                         >
-                          <Check size={16} />
+                          <CheckRounded style={{ fontSize: 18 }} />
                         </button>
                       </div>
                     ) : (
@@ -238,7 +236,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                         <h2 className="list-card-name">{list.name}</h2>
                         {isComplete && (
                           <span className="list-card-badge-complete">
-                            <CheckCircle2 size={12} />
+                            <CheckCircleRounded style={{ fontSize: 14 }} />
                             <span>Concluída</span>
                           </span>
                         )}
@@ -260,7 +258,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                         aria-label="Duplicar lista"
                       >
                         <abbr title="Duplicar lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                          <Copy size={15} />
+                          <ContentCopyRounded style={{ fontSize: 16 }} />
                         </abbr>
                       </button>
 
@@ -272,7 +270,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                           aria-label="Renomear lista"
                         >
                           <abbr title="Renomear lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <Pencil size={15} />
+                            <EditRounded style={{ fontSize: 16 }} />
                           </abbr>
                         </button>
                       )}
@@ -290,7 +288,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                           aria-label="Excluir lista"
                         >
                           <abbr title="Excluir lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <Trash2 size={15} />
+                            <DeleteOutlineRounded style={{ fontSize: 16 }} />
                           </abbr>
                         </button>
                       )}
@@ -315,7 +313,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                             isOverBudget ? 'over-budget' : ''
                           }`}
                         >
-                          {isOverBudget && <AlertCircle size={12} />}
+                          {isOverBudget && <ErrorOutlineRounded style={{ fontSize: 14 }} />}
                           Teto: {formatCurrency(list.budget)}
                         </span>
                       )}

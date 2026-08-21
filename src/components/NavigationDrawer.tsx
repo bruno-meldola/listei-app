@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  X,
-  ShoppingBag,
-  Sun,
-  Moon,
-  Smartphone,
-  Info,
-  CheckCircle2,
-} from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import ShoppingBagRounded from '@mui/icons-material/ShoppingBagRounded';
+import LightModeRounded from '@mui/icons-material/LightModeRounded';
+import DarkModeRounded from '@mui/icons-material/DarkModeRounded';
+import SettingsBrightnessRounded from '@mui/icons-material/SettingsBrightnessRounded';
+import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded';
+import InfoOutlined from '@mui/icons-material/InfoOutlined';
 import type { ThemeMode } from '../hooks/useTheme';
 
 interface NavigationDrawerProps {
@@ -43,7 +41,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
         <div className="drawer-header">
           <div className="drawer-brand">
             <div className="drawer-logo-icon">
-              <ShoppingBag size={24} strokeWidth={2.5} />
+              <ShoppingBagRounded style={{ fontSize: 24 }} />
             </div>
             <div className="drawer-brand-text">
               <span className="drawer-app-name">Listei!</span>
@@ -57,7 +55,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             onClick={onClose}
             aria-label="Fechar menu"
           >
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -74,7 +72,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 onClick={() => onSetTheme('light')}
                 title="Modo Claro"
               >
-                <Sun size={18} />
+                <LightModeRounded style={{ fontSize: 18 }} />
                 <span>Claro</span>
               </button>
 
@@ -84,7 +82,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 onClick={() => onSetTheme('dark')}
                 title="Modo Escuro"
               >
-                <Moon size={18} />
+                <DarkModeRounded style={{ fontSize: 18 }} />
                 <span>Escuro</span>
               </button>
 
@@ -94,7 +92,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 onClick={() => onSetTheme('system')}
                 title="Seguir o tema padrão do sistema"
               >
-                <Smartphone size={18} />
+                <SettingsBrightnessRounded style={{ fontSize: 18 }} />
                 <span>Sistema</span>
               </button>
             </div>
@@ -129,7 +127,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             <span className="drawer-section-title">Sobre</span>
             <div className="drawer-info-box">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle2 size={16} style={{ color: 'var(--accent-success)' }} />
+                <CheckCircleRounded style={{ fontSize: 18, color: 'var(--accent-success)' }} />
                 <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>100% Offline & Seguro</span>
               </div>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: 1.4 }}>
@@ -142,7 +140,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
         {/* Rodapé do Menu */}
         <div className="drawer-footer">
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <Info size={13} />
+            <InfoOutlined style={{ fontSize: 14 }} />
             <span>Listei! v1.0 • PWA Ready</span>
           </span>
         </div>

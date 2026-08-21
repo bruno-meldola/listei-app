@@ -1,5 +1,7 @@
 import React from 'react';
-import { X, RotateCcw, AlertTriangle } from 'lucide-react';
+import CloseRounded from '@mui/icons-material/CloseRounded';
+import RestartAltRounded from '@mui/icons-material/RestartAltRounded';
+import WarningAmberRounded from '@mui/icons-material/WarningAmberRounded';
 
 interface ResetListModalProps {
   isOpen: boolean;
@@ -21,11 +23,11 @@ export const ResetListModal: React.FC<ResetListModalProps> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <AlertTriangle size={20} style={{ color: 'var(--accent-warning)' }} />
+            <WarningAmberRounded style={{ fontSize: 22, color: 'var(--accent-warning)' }} />
             <h2 className="modal-title">Tem certeza que deseja resetar a lista?</h2>
           </div>
           <button type="button" className="btn-icon" onClick={onClose} aria-label="Fechar">
-            <X size={18} />
+            <CloseRounded style={{ fontSize: 20 }} />
           </button>
         </div>
 
@@ -70,7 +72,7 @@ export const ResetListModal: React.FC<ResetListModalProps> = ({
               onClose();
             }}
           >
-            <RotateCcw size={16} />
+            <RestartAltRounded style={{ fontSize: 18 }} />
             <span>Sim, Resetar Lista</span>
           </button>
         </div>
