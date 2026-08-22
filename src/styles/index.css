@@ -1263,12 +1263,12 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent-danger-border);
 }
 
-/* Controles de Quantidade, Preço Unitário e Subtotal Direto (Sem Sobreposição) */
+/* Controles de Quantidade, Preço Unitário e Subtotal Direto (Adaptativo e Sem Cortes) */
 .item-card-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 8px;
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid var(--border-subtle);
@@ -1297,7 +1297,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   transition: background-color 0.15s ease;
   padding: 0;
@@ -1318,11 +1318,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stepper-input {
-  width: 34px;
+  width: 32px;
   height: 34px;
   text-align: center;
-  font-size: 0.92rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text-primary);
   border: none;
   background: transparent;
@@ -1331,14 +1331,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stepper-unit-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--text-muted);
   padding-right: 4px;
   user-select: none;
 }
 
-/* Preço Unitário & Subtotal com Layout Flexbox Integrado (Anti-Overlap) */
+/* Preço Unitário & Subtotal com Layout Flexbox Fluido */
 .price-input-wrapper,
 .subtotal-input-wrapper {
   display: inline-flex;
@@ -1350,9 +1350,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 6px 0 8px;
   transition: all 0.15s ease;
   box-sizing: border-box;
-  flex: 1;
-  min-width: 0;
-  max-width: 130px;
+  flex: 1 1 auto;
+  min-width: 100px;
 }
 
 .price-input-wrapper:focus-within,
@@ -1364,15 +1363,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .price-currency-label,
 .subtotal-currency-label {
-  font-size: 0.7rem;
+  font-size: 0.67rem;
   font-weight: 800;
   color: var(--text-muted);
   white-space: nowrap;
   user-select: none;
-  margin-right: 3px;
+  margin-right: 4px;
   text-transform: uppercase;
   flex-shrink: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .price-input-field,
@@ -1380,20 +1379,20 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   background: transparent;
   color: var(--text-primary);
-  font-size: 0.92rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-align: right;
   outline: none;
   width: 100%;
   padding: 0;
   margin: 0;
-  min-width: 0;
+  min-width: 32px;
   flex: 1;
 }
 
 .btn-clear-inline {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--bg-surface-hover);
   border: none;
@@ -1404,7 +1403,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   transition: all 0.15s ease;
   padding: 0;
-  margin-left: 4px;
+  margin-left: 3px;
   flex-shrink: 0;
 }
 
@@ -1413,19 +1412,25 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-danger);
 }
 
-/* Responsividade de Tela Super Estreita (< 375px) */
-@media (max-width: 375px) {
+/* Responsividade Mobile (< 440px) */
+@media (max-width: 440px) {
   .item-card-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 8px;
+    gap: 8px;
+  }
+  .quantity-stepper {
+    grid-column: 1;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .price-input-wrapper {
+    grid-column: 2;
+    width: 100%;
   }
   .subtotal-input-wrapper {
     grid-column: span 2;
-    max-width: 100%;
-  }
-  .price-input-wrapper {
-    max-width: 100%;
+    width: 100%;
   }
 }
 

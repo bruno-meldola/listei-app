@@ -3,7 +3,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import DragIndicatorRounded from '@mui/icons-material/DragIndicatorRounded';
 import CheckRounded from '@mui/icons-material/CheckRounded';
-import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import DeleteForeverRounded from '@mui/icons-material/DeleteForeverRounded';
 import EditRounded from '@mui/icons-material/EditRounded';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 import ScaleRounded from '@mui/icons-material/ScaleRounded';
@@ -251,18 +251,18 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           </button>
         )}
 
-        {/* Botão Deletar */}
+        {/* Botão Deletar com DeleteForeverRounded */}
         <button
           type="button"
           className="item-action-btn delete"
           onClick={() => onDeleteItem(item.id)}
           title="Remover item da lista"
         >
-          <DeleteOutlineRounded style={{ fontSize: 18 }} />
+          <DeleteForeverRounded style={{ fontSize: 19 }} />
         </button>
       </div>
 
-      {/* Controles de Quantidade/Peso, Preço Unitário e Subtotal Direto (Sem Sobreposição) */}
+      {/* Controles de Quantidade/Peso, Preço Unitário e Subtotal Direto */}
       <div className="item-card-actions">
         {/* Stepper e Input de Quantidade/Peso */}
         <div className="quantity-stepper" title={`Quantidade ou peso em ${item.unit}`}>
@@ -326,7 +326,7 @@ export const ItemCard: React.FC<ItemCardProps> = ({
           )}
         </div>
 
-        {/* Subtotal / Total Direto da Balança (Layout Flex Sem Sobreposição) */}
+        {/* Subtotal / Total Direto da Balança */}
         <div className="subtotal-input-wrapper" title="Valor Total do produto (calculado ou digitado direto da balança)">
           <span className="subtotal-currency-label">Total R$</span>
           <input

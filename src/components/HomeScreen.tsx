@@ -4,7 +4,7 @@ import AddRounded from '@mui/icons-material/AddRounded';
 import SearchRounded from '@mui/icons-material/SearchRounded';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 import ContentCopyRounded from '@mui/icons-material/ContentCopyRounded';
-import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import DeleteForeverRounded from '@mui/icons-material/DeleteForeverRounded';
 import EditRounded from '@mui/icons-material/EditRounded';
 import CheckRounded from '@mui/icons-material/CheckRounded';
 import CheckCircleRounded from '@mui/icons-material/CheckCircleRounded';
@@ -288,7 +288,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                           aria-label="Excluir lista"
                         >
                           <abbr title="Excluir lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <DeleteOutlineRounded style={{ fontSize: 16 }} />
+                            <DeleteForeverRounded style={{ fontSize: 17 }} />
                           </abbr>
                         </button>
                       )}

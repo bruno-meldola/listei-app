@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 import AttachMoneyRounded from '@mui/icons-material/AttachMoneyRounded';
-import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import DeleteForeverRounded from '@mui/icons-material/DeleteForeverRounded';
 import { formatCurrency, parseCurrencyInput, formatShortCurrency } from '../utils/currency';
 
 interface BudgetModalProps {
@@ -119,7 +119,7 @@ export const BudgetModal: React.FC<BudgetModalProps> = ({
               style={{ marginRight: 'auto' }}
               title="Remover orçamento"
             >
-              <DeleteOutlineRounded style={{ fontSize: 18, marginRight: '4px' }} />
+              <DeleteForeverRounded style={{ fontSize: 18, marginRight: '4px' }} />
               Remover Limite
             </button>
           )}

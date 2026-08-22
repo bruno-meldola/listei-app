@@ -3,7 +3,7 @@ import CloseRounded from '@mui/icons-material/CloseRounded';
 import AddRounded from '@mui/icons-material/AddRounded';
 import LayersRounded from '@mui/icons-material/LayersRounded';
 import ContentCopyRounded from '@mui/icons-material/ContentCopyRounded';
-import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded';
+import DeleteForeverRounded from '@mui/icons-material/DeleteForeverRounded';
 import CheckRounded from '@mui/icons-material/CheckRounded';
 import EditRounded from '@mui/icons-material/EditRounded';
 import type { ShoppingList } from '../types/shopping';
@@ -299,7 +299,7 @@ export const ListManagerModal: React.FC<ListManagerModalProps> = ({
                           aria-label="Excluir lista"
                         >
                           <abbr title="Excluir lista" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <DeleteOutlineRounded style={{ fontSize: 16 }} />
+                            <DeleteForeverRounded style={{ fontSize: 18 }} />
                           </abbr>
                         </button>
                       )}

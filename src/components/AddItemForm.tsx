@@ -73,11 +73,11 @@ export const AddItemForm: React.FC<AddItemFormProps> = ({ onAddItem }) => {
       >
         <div className="add-item-header-title">
           <AddCircleOutlineRounded className="add-item-icon" style={{ fontSize: 20 }} />
-          <span>Adicionar produto</span>
+          <span>Adicionar item</span>
         </div>
         <div className="add-item-header-toggle">
           <span className="add-item-toggle-hint">
-            {isOpen ? 'Ocultar' : 'Novo item'}
+            {isOpen ? 'Ocultar' : 'Expandir'}
           </span>
           <ExpandMoreRounded
             style={{ fontSize: 20 }}
